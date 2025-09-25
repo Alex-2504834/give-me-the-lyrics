@@ -7,7 +7,7 @@ print("\nHello user, please input your search query, the more accurate the bette
 prompt = input("\nenter song query $ ").replace(" ", "%20")
 
 # create the url for get request and fire said request
-url =  f"https://searx.bndkt.io/search?q=%22site%3Agenius.com%22%20{prompt}&language=all&time_range=&safesearch=0&categories=general"
+url =  f"https://searx.bndkt.io/search?q=%22site%3Agenius.com%22%20{prompt}%20lyrics&language=all&time_range=&safesearch=0&categories=general"
 response = requests.get(url, {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
 
 # process the raw html with soup so it can be easily modified and selected
