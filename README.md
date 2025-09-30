@@ -13,5 +13,8 @@ https://archlinux.org/packages/extra/any/python-requests/
 
 
 ### pip install command
-always remember to be careful before running a pip command<br>
+Always remember to be careful before running a pip command<br>
 <code>pip install beautifulsoup4 requests</code>
+
+You can also use the activate.bash file on linux to automatically create a venv and install via pip
+<code>source activate.bash</code>
