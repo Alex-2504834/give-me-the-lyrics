@@ -21,15 +21,20 @@ response = requests.get(songUrl, {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; W
 soup = BeautifulSoup(response.text, "html.parser")
 
 # remove header from lyrics
-soup.find("div", "LyricsHeader__Container-sc-5e4b7146-1").decompose()
+soup.find("div", {"data-exclude-from-selection": "true"}).decompose()
 
 # replace all the brs with new line characters so its more readable in the output
 for br in soup.find_all('br'):
     br.replace_with("\n")
 
+# organise all lyrics into a string
+output = ""
+for verse in soup.find_all("div", {"data-lyrics-container": "true"}):
+    output += verse.get_text()
+
 # output the lyrics to output.txt
 f = open("output.txt", "w")
-f.write(soup.find("div", class_="Lyrics__Container-sc-a49d8432-1").get_text())
+f.write(output)
 f.close()
 
 print("\nlyrics outputted to \"output.txt\"")
