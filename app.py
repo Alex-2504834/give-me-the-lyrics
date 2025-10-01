@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+testing = False
+
 def getLyrics(prompt):
     # create the url for get request and fire said request
     url =  f"https://searx.bndkt.io/search?q=%22site%3Agenius.com%22%20{prompt}%20lyrics&language=all&time_range=&safesearch=0&categories=general"
@@ -46,4 +48,7 @@ def main():
 
     print("\nlyrics outputted to \"output.txt\" in active directory")
 
-main()
+if testing == False:
+    main()
+
+# test command, python -m unittest tests/test_getLyrics.py
