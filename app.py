@@ -10,6 +10,11 @@ def getLyrics(prompt):
 
     # process the raw html with soup so it can be easily modified and selected
     soup = BeautifulSoup(response.text, "html.parser")
+
+    # check for no results
+    if soup.find("article", class_="result") == None:
+        return "not found"
+
     songUrl = soup.find("article", class_="result").find("a", class_="url_header").get("href")
 
     print(f"\nUrl found. Loading content from {songUrl} ...")
@@ -18,6 +23,8 @@ def getLyrics(prompt):
     response = requests.get(songUrl, {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
     soup = BeautifulSoup(response.text, "html.parser")
 
+    if soup.find("div", {"data-exclude-from-selection": "true"}) is None:
+        return "not found"
     # remove header from lyrics
     soup.find("div", {"data-exclude-from-selection": "true"}).decompose()
 
@@ -46,7 +53,10 @@ def main():
     f.write(output)
     f.close()
 
-    print("\nlyrics outputted to \"output.txt\" in active directory")
+    if output == "not found":
+        print("\nno results found")
+    else:
+        print("\nlyrics outputted to \"output.txt\" in active directory")
 
 if testing == False:
     main()
