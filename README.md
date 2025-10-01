@@ -24,3 +24,6 @@ If you are on windows just double click the <code>activate.bat</code> file to au
 ### Tests
 This app uses the in built unit tests package, you can test the code by running the below code and setting <code>testing</code> to <code>True</code><br>
 <code>python -m unittest tests/test_getLyrics.py</code>
+
+### LICENCE
+This project is under the MIT licence however the I claim no ownership of the lyrics used in the tests
