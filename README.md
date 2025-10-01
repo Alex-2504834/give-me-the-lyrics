@@ -18,3 +18,5 @@ Always remember to be careful before running a pip command<br>
 
 You can also use the activate.bash file on linux to automatically create a venv and install via pip<br>
 <code>source activate.bash</code>
+
+If you are on windows just double click the <code>activate.bat</code> file to automatically create a venv and install via pip
