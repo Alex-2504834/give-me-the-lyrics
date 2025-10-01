@@ -50,5 +50,3 @@ def main():
 
 if testing == False:
     main()
-
-# test command, python -m unittest tests/test_getLyrics.py

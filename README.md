@@ -20,3 +20,7 @@ You can also use the activate.bash file on linux to automatically create a venv 
 <code>source activate.bash</code>
 
 If you are on windows just double click the <code>activate.bat</code> file to automatically create a venv and install via pip
+
+### Tests
+This app uses the in built unit tests package, you can test the code by running the below code and setting <code>testing</code> to <code>True</code><br>
+<code>python -m unittest tests/test_getLyrics.py</code>
