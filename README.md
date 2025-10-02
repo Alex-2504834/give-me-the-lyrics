@@ -12,8 +12,9 @@ This requires requests and beautifulsoup4 to be installed. You can do this via p
 
 ### Links to dependencies
 
-https://archlinux.org/packages/extra/any/python-beautifulsoup4/
-https://archlinux.org/packages/extra/any/python-requests/
+[archlinux / python-beautifulsoup4](https://archlinux.org/packages/extra/any/python-beautifulsoup4/)
+
+[archlinux / python-requests](https://archlinux.org/packages/extra/any/python-requests/)
 
 ### pip install command
 
