@@ -40,6 +40,38 @@ class TestLyricOutput(unittest.TestCase):
         """Test that an empty query returns an empty string or appropriate message."""
         actual_lyrics = getLyrics("")
         self.assertTrue(actual_lyrics.strip() == "" or "not found" in actual_lyrics.lower())
+    
+    def test_numeric_query(self):
+        """Test that numeric queries do not break the function."""
+        actual_lyrics = getLyrics("12345")
+        self.assertIsInstance(actual_lyrics, str)
+
+    def test_non_ascii_query(self):
+        """Test that non-ASCII queries do not break the function."""
+        actual_lyrics = getLyrics("Despacitoñ")
+        self.assertIsInstance(actual_lyrics, str)
+
+    def test_long_query(self):
+        """Test that a very long query string does not break the function."""
+        long_query = "a" * 1000
+        actual_lyrics = getLyrics(long_query)
+        self.assertTrue(actual_lyrics.strip() == "" or "not found" in actual_lyrics.lower())
+
+    def test_special_characters_only(self):
+        """Test that a query with only special characters returns empty or not found."""
+        actual_lyrics = getLyrics("!@#$%^&*()")
+        self.assertTrue(actual_lyrics.strip() == "" or "not found" in actual_lyrics.lower())
+
+    def test_multiple_word_query(self):
+        """Test that a multi-word query returns lyrics."""
+        actual_lyrics = getLyrics("Bohemian Rhapsody")
+        self.assertTrue(len(actual_lyrics.strip()) > 0)
+
+    def test_query_with_apostrophe(self):
+        """Test that queries with apostrophes work."""
+        actual_lyrics = getLyrics("Don't Stop Believin'")
+        self.assertIsInstance(actual_lyrics, str)
+    
     # End of AI generated tests
 
 
