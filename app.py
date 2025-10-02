@@ -1,8 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-testing = False
-
 def getLyrics(prompt):
     # create the url for get request and fire said request
     url =  f"https://searx.bndkt.io/search?q=%22site%3Agenius.com%22%20{prompt}%20lyrics&language=all&time_range=&safesearch=0&categories=general"
@@ -16,8 +14,6 @@ def getLyrics(prompt):
         return "not found"
 
     songUrl = soup.find("article", class_="result").find("a", class_="url_header").get("href")
-
-    print(f"\nUrl found. Loading content from {songUrl} ...")
 
     # get html and process it with soup
     response = requests.get(songUrl, {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
@@ -58,5 +54,5 @@ def main():
     else:
         print("\nlyrics outputted to \"output.txt\" in active directory")
 
-if testing == False:
+if __name__ == '__main__':
     main()

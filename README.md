@@ -29,7 +29,7 @@ If you are on windows just double click the ```activate.bat``` file to automatic
 
 ## Tests
 
-This app uses the in built unit tests package, you can test the code by running the below code and setting ```testing``` to ```True```
+This app uses the in built unit tests package, you can test the code by running the below code
 
 ```python -m unittest tests/test_getLyrics.py```
 
