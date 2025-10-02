@@ -1,3 +1,6 @@
 output.txt
 /.venv
 /venv
+.vscode
+__pycache__
+*.pyc
