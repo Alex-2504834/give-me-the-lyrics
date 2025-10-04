@@ -37,3 +37,12 @@ This app uses the in built unit tests package, you can test the code by running 
 ## LICENCE
 
 This project is under the MIT licence however the I claim no ownership of the lyrics used in the tests. AI was used for some of the test cases and the windows activation script
+
+## To Do
+
+- [ ] add GUI
+- [ ] allow mutiple sources
+- [ ] setup mock http requests for local testing
+- [ ] more formats for output i.e. JSON and csv
+- [ ] collect meta data
+- [ ] add get lyrics function as a pypi package
