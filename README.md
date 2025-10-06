@@ -30,7 +30,7 @@ If you are on windows just double click the ```activate.bat``` file to automatic
 
 ## Tests
 
-This app uses the in built unit tests package, you can test the code by running the below code, you should get 17/17 if not creat an issue (it takes me 32.6 seconds to run)
+This app uses the in built unit tests package, you can test the code by running the below code, you should get 17/17 if not create an issue (it takes me 32.6 seconds to run)
 
 ```python -m unittest tests/test_getLyrics.py```
 
