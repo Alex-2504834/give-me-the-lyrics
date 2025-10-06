@@ -59,25 +59,30 @@ def getLyrics(prompt, source="genius"):
 
 def main():
     print("\nHello user, please input your search query, the more accurate the better result, this can be name, author and lyrics.")
-
-    # get the search prompt and format it for the search engine
-    prompt = requests.utils.quote(input("\nenter song query $ "))
     
+    # get the source for the lyrics
     source = input("\nchoose a source 1.genius (more songs), 2.lyricadvisor (faster) $ ")
 
     if source == "1":
         source = "genius"
     elif source == "2":
         source = "lyricadvisor"
+    else:
+        print("\ninvalid source, defaulting to genius")
+        source = "genius"
 
+    # get the search prompt and format it for the search engine
+    prompt = requests.utils.quote(input("\nenter song query $ "))
+
+    # get the lyrics from the prompt
     output = getLyrics(prompt, source)
-    #output = getLyrics(prompt, source="lyricadvisor")
 
     # output the lyrics to output.txt
     f = open("output.txt", "w")
     f.write(str(output))
     f.close()
 
+    # inform the user of the result
     if output == "not found":
         print("\nno results found")
     else:
