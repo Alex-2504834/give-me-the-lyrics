@@ -22,7 +22,11 @@ def callAppFunc():
     userSearchButton.configure(state="disabled")
 
     try:
-        lyrics = getLyrics(query)
+        sourceMap = {"Genius": "genius", "LyricAdvisor": "lyricadvisor"}
+
+        source = sourceMap.get(sourceVar.get(), "genius")
+        
+        lyrics = getLyrics(query, source)
         setOutput(lyrics)
     except Exception as error:
         setOutput(str(error))
@@ -54,20 +58,25 @@ ctk.set_appearance_mode("dark")
 userInputLabel = ctk.CTkLabel(app, text="Enter song query:")
 userInputEntry = ctk.CTkEntry(app)
 userSearchButton = ctk.CTkButton(app, text="Search", state="disabled", command=callAppFunc)
+
+sourceVar = ctk.StringVar(value="Genius")
+userSourceOptionMenu = ctk.CTkOptionMenu(app, variable=sourceVar, values=["Genius", "LyricAdvisor"])
+
 outputTextbox = ctk.CTkTextbox(app, state="disabled", wrap="word")
 saveButton = ctk.CTkButton(app, text="Save Lyrics", state="disabled", command=saveToFile)
 
 
 app.grid_rowconfigure(2, weight=1)
-app.grid_columnconfigure((0, 1, 2), weight=1)
+app.grid_columnconfigure((0, 1, 2, 3), weight=1)
 
 userInputEntry.bind("<KeyRelease>", checkEntry)
 
 userInputLabel.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 userInputEntry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
-userSearchButton.grid(row=0, column=2, padx=5, pady=5)
+userSourceOptionMenu.grid(row=0, column=2, padx=6, pady=6, sticky="ew")
+userSearchButton.grid(row=0, column=3, padx=5, pady=5)
 
-saveButton.grid(row=1, column=0, columnspan=3, padx=5, pady=(0, 5), sticky="ew")
-outputTextbox.grid(row=2, column=0, columnspan=3, padx=5, pady=5, sticky="nsew")
+saveButton.grid(row=1, column=0, columnspan=4, padx=5, pady=(0, 5), sticky="ew")
+outputTextbox.grid(row=2, column=0, columnspan=4, padx=5, pady=5, sticky="nsew")
 
 app.mainloop()
