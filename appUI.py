@@ -79,4 +79,5 @@ userSearchButton.grid(row=0, column=3, padx=5, pady=5)
 saveButton.grid(row=1, column=0, columnspan=4, padx=5, pady=(0, 5), sticky="ew")
 outputTextbox.grid(row=2, column=0, columnspan=4, padx=5, pady=5, sticky="nsew")
 
-app.mainloop()
+if __name__ == '__main__':
+    app.mainloop()
