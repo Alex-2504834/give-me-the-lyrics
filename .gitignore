@@ -1,6 +1,20 @@
-output.txt
-/.venv
-/venv
-.vscode
-__pycache__
-*.pyc
+# output should not be committed
+output.txt 
+
+# venv should not be committed
+/.venv 
+
+# venv should not be committed
+/venv 
+
+# for extensions settings
+.vscode 
+
+# byproduct of tests
+__pycache__ 
+
+# byproduct of tests
+*.pyc 
+
+# for making the zips with venvs in them
+/bin 
